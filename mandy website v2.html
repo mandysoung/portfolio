@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandy Soung - Market Research Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF8F2;
+    --ink:#1E1A2E;
+    --pink:#FF6B9D;
+    --orange:#FF9466;
+    --yellow:#FFC857;
+    --teal:#4ECDC4;
+    --purple:#6C63FF;
+    --muted:#8A8290;
+    --line:#EFE2D8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Space Grotesk',sans-serif;line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;}
+  a{color:inherit;text-decoration:none;}
+
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 6%;position:sticky;top:0;z-index:20;
+    background:rgba(255,248,242,0.85);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .logo{font-weight:700;font-size:1.4rem;}
+  .logo span{color:var(--pink);}
+  nav a{margin-left:30px;font-weight:600;font-size:0.95rem;position:relative;}
+  nav a:hover{color:var(--pink);}
+
+  /* HERO */
+  .hero{
+    padding:90px 6% 60px;position:relative;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;
+  }
+  .hero::before{
+    content:'';position:absolute;top:-60px;right:8%;width:280px;height:280px;
+    background:var(--yellow);border-radius:50%;opacity:0.35;filter:blur(10px);z-index:-1;
+  }
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;background:#fff;
+    border:2px solid var(--ink);border-radius:30px;padding:8px 18px;
+    font-weight:700;font-size:0.85rem;margin-bottom:24px;
+    box-shadow:4px 4px 0 var(--pink);
+  }
+  .hero h1{
+    font-size:4rem;line-height:1.08;font-weight:600;
+  }
+  .hero h1 em{font-style:italic;color:var(--pink);}
+  .hero h1 .underline{position:relative;}
+  .hero h1 .underline::after{
+    content:'';position:absolute;left:0;bottom:4px;width:100%;height:12px;
+    background:var(--teal);opacity:0.5;z-index:-1;
+  }
+  .hero p{margin-top:22px;font-size:1.15rem;color:var(--muted);max-width:480px;}
+  .tag-row{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap;}
+  .tag{
+    background:#fff;border:2px solid var(--ink);border-radius:30px;
+    padding:8px 18px;font-size:0.85rem;font-weight:600;
+  }
+  .tag:nth-child(1){background:var(--pink);color:#fff;border-color:var(--pink);}
+  .tag:nth-child(2){background:var(--teal);color:#fff;border-color:var(--teal);}
+  .tag:nth-child(3){background:var(--orange);color:#fff;border-color:var(--orange);}
+
+  .hero-card{
+    aspect-ratio:4/5;border-radius:24px;border:2px solid var(--ink);
+    background:linear-gradient(160deg,var(--purple) 0%,var(--pink) 50%,var(--orange) 100%);
+    position:relative;overflow:hidden;
+    box-shadow:10px 10px 0 var(--ink);
+  }
+  .hero-card .grain{
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:32px;color:#fff;
+  }
+  .hero-card .grain h3{font-size:1.4rem;font-style:italic;font-weight:600;}
+  .hero-card .grain p{color:rgba(255,255,255,0.85);font-size:0.9rem;margin-top:8px;}
+  .hero-card .shapes{position:absolute;inset:0;}
+  .shapes div{position:absolute;border-radius:50%;}
+  .shapes .c1{width:120px;height:120px;background:rgba(255,255,255,0.15);top:30px;left:30px;}
+  .shapes .c2{width:70px;height:70px;background:rgba(255,255,255,0.2);top:120px;right:40px;}
+  .shapes .c3{width:160px;height:160px;border:3px solid rgba(255,255,255,0.25);bottom:140px;left:-60px;background:none;}
+
+  /* SECTIONS */
+  section{padding:80px 6%;}
+  .section-label{
+    display:inline-block;font-weight:700;font-size:0.85rem;text-transform:uppercase;
+    letter-spacing:0.15em;color:var(--purple);margin-bottom:10px;
+  }
+  section h2{font-size:2.6rem;margin-bottom:50px;font-weight:600;}
+  section h2 em{color:var(--orange);font-style:italic;}
+
+  /* WORK GRID */
+  .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
+  .work-card{
+    background:#fff;border:2px solid var(--ink);border-radius:18px;
+    padding:30px;position:relative;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .work-card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink);}
+  .work-card .icon{
+    width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;margin-bottom:18px;border:2px solid var(--ink);
+  }
+  .work-card:nth-child(1) .icon{background:var(--pink);}
+  .work-card:nth-child(2) .icon{background:var(--teal);}
+  .work-card:nth-child(3) .icon{background:var(--yellow);}
+  .work-card:nth-child(4) .icon{background:var(--orange);}
+  .work-card h3{font-size:1.4rem;margin-bottom:8px;font-weight:600;}
+  .work-card .role{font-size:0.85rem;color:var(--muted);font-weight:600;margin-bottom:14px;}
+  .work-card p{color:var(--muted);font-size:0.95rem;}
+  .work-result{
+    margin-top:16px;display:inline-block;font-weight:700;font-size:0.9rem;
+    background:var(--ink);color:#fff;padding:6px 14px;border-radius:20px;
+  }
+  .client-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .client-tags span{
+    font-size:0.8rem;font-weight:600;border:1px solid var(--line);
+    border-radius:16px;padding:4px 12px;color:var(--muted);background:var(--bg);
+  }
+
+  /* CASE STUDIES */
+  .case-study{
+    background:#fff;border:2px solid var(--ink);border-radius:18px;
+    padding:32px;margin-top:24px;
+  }
+  .case-study h4{font-size:1.4rem;font-weight:600;margin-bottom:6px;}
+  .case-study .case-meta{color:var(--muted);font-size:0.9rem;margin-bottom:14px;}
+  .case-study .case-meta strong{color:var(--ink);}
+  .case-study p{font-size:0.95rem;color:var(--muted);line-height:1.7;}
+
+  /* GALLERY / INFOGRAPHICS — showcase style */
+  .work-subsection-title{
+    margin:80px 0 50px;padding-top:40px;border-top:1px solid var(--line);
+  }
+  .work-subsection-title h2{font-size:2.6rem;margin-bottom:0;}
+  .work-subsection-title:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+
+  .gallery-block{
+    margin-bottom:90px;padding-bottom:90px;border-bottom:1px solid var(--line);
+  }
+  .gallery-block:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+
+  .gallery-header{margin-bottom:36px;max-width:720px;}
+  .gallery-header .gallery-tag{
+    display:inline-block;background:var(--purple);color:#fff;font-size:0.8rem;font-weight:700;
+    padding:6px 16px;border-radius:20px;margin-bottom:14px;
+  }
+  .gallery-header h3{font-size:2.1rem;font-weight:600;line-height:1.2;}
+  .gallery-header p{color:var(--muted);font-size:1.05rem;margin-top:10px;}
+
+  .social-links{display:flex;gap:10px;margin-top:16px;}
+  .social-links a{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:50%;
+    border:2px solid var(--ink);background:#fff;color:var(--ink);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .social-links a:hover{
+    transform:translateY(-3px);background:var(--ink);color:#fff;
+  }
+  .social-links svg{width:18px;height:18px;}
+
+  .platform-tags{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+  .platform-tags span{
+    font-size:0.8rem;font-weight:700;border-radius:16px;padding:5px 14px;
+    color:#fff;
+  }
+  .platform-tags .tag-instagram{background:linear-gradient(135deg,var(--pink),var(--orange));}
+  .platform-tags .tag-linkedin{background:#0a66c2;}
+  .platform-tags .tag-facebook{background:#1877f2;}
+
+  /* Masonry via CSS columns */
+  .gallery-grid{
+    column-count:3;column-gap:20px;
+  }
+  .gallery-grid.cols-2{column-count:2;}
+  .gallery-grid img{
+    width:100%;display:block;
+    border:2px solid var(--ink);border-radius:16px;
+    margin-bottom:20px;break-inside:avoid;
+    transition:transform .2s ease, box-shadow .2s ease;
+    cursor:zoom-in;
+  }
+  .gallery-grid img:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--ink);}
+
+  .gallery-subsection{margin-top:40px;}
+  .gallery-subsection:first-of-type{margin-top:0;}
+  .gallery-subsection h4{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;font-weight:600;
+    margin-bottom:18px;color:var(--ink);
+  }
+  .gallery-subsection h4::before{
+    content:'';width:28px;height:3px;background:var(--orange);border-radius:2px;
+  }
+  .brand-icon{
+    width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+    background:#fff;flex-shrink:0;
+  }
+  .brand-links{display:flex;gap:8px;margin-left:auto;}
+  .brand-links a{
+    display:flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--line);background:#fff;color:var(--muted);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .brand-links a:hover{transform:translateY(-2px);background:var(--ink);color:#fff;}
+  .brand-links svg{width:14px;height:14px;}
+  .gallery-placeholder{
+    border:2px dashed var(--line);border-radius:16px;
+    display:flex;align-items:center;justify-content:center;
+    aspect-ratio:4/3;color:var(--muted);font-size:0.9rem;text-align:center;padding:20px;
+    margin-bottom:20px;
+  }
+
+  /* Lightbox */
+  .lightbox{
+    display:none;position:fixed;inset:0;background:rgba(30,26,46,0.92);
+    z-index:100;align-items:center;justify-content:center;padding:30px;
+    cursor:zoom-out;
+  }
+  .lightbox.active{display:flex;}
+  .lightbox img{
+    max-width:100%;max-height:90vh;border-radius:12px;border:2px solid #fff;
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  @media(max-width:900px){
+    .gallery-grid, .gallery-grid.cols-2{column-count:2;}
+    .gallery-header h3{font-size:1.7rem;}
+  }
+  @media(max-width:600px){
+    .gallery-grid, .gallery-grid.cols-2{column-count:1;}
+  }
+
+  /* SKILLS */
+  .skills-wrap{
+    background:var(--ink);color:#fff;border-radius:24px;padding:50px;
+  }
+  .skills-wrap h2{color:#fff;}
+  .skills-wrap .section-label{color:var(--yellow);}
+  .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .skill-block h4{
+    font-family:'Fraunces',serif;font-size:1.2rem;margin-bottom:14px;color:var(--pink);
+    font-style:italic;
+  }
+  .skill-pill{
+    display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;padding:6px 14px;font-size:0.85rem;margin:4px 4px 0 0;
+  }
+
+  /* ABOUT */
+  .about{display:grid;grid-template-columns:0.9fr 1.3fr;gap:60px;align-items:center;}
+  .about-visual{
+    aspect-ratio:1/1;border-radius:24px;border:2px solid var(--ink);
+    background:var(--teal);box-shadow:10px 10px 0 var(--pink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-size:5rem;color:#fff;font-weight:700;
+    overflow:hidden;
+  }
+  .about-visual img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .about p{color:var(--muted);margin-bottom:16px;font-size:1.05rem;}
+  .timeline{margin-top:30px;}
+  .timeline-item{
+    display:flex;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .timeline-item .year{font-weight:700;color:var(--purple);min-width:90px;font-size:0.9rem;}
+  .timeline-item .desc{font-size:0.95rem;}
+  .timeline-item .desc strong{display:block;}
+  .timeline-item .desc span{color:var(--muted);font-size:0.85rem;}
+  .timeline-item .desc span a{color:var(--purple);font-weight:600;border-bottom:1px solid var(--purple);}
+  .timeline-item .desc span a:hover{color:var(--pink);border-color:var(--pink);}
+  .timeline-section-label{
+    margin:24px 0 6px;font-size:0.8rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.15em;color:var(--purple);
+  }
+
+  /* FOOTER */
+  footer{
+    padding:70px 6%;text-align:center;
+    background:linear-gradient(135deg,var(--purple),var(--pink));
+    color:#fff;border-radius:30px 30px 0 0;margin:0 4%;
+  }
+  footer h2{color:#fff;font-size:3rem;margin-bottom:10px;}
+  footer p{color:rgba(255,255,255,0.85);margin-bottom:30px;font-size:1.1rem;}
+  .cta-btn{
+    background:#fff;color:var(--ink);padding:16px 36px;border-radius:30px;
+    font-weight:700;display:inline-block;border:2px solid var(--ink);
+    box-shadow:6px 6px 0 var(--ink);transition:transform .15s ease;
+  }
+  .cta-btn:hover{transform:translate(-3px,-3px);}
+  .footer-links{margin-top:30px;font-size:0.9rem;}
+  .footer-links a{margin:0 12px;border-bottom:1px solid rgba(255,255,255,0.4);}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;}
+    .hero h1{font-size:2.8rem;}
+    .work-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .about{grid-template-columns:1fr;}
+    nav a{margin-left:14px;font-size:0.85rem;}
+    section h2{font-size:2rem;}
+    footer h2{font-size:2.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Mandy Soung</div>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="badge">✦ Open to opportunities</div>
+    <h1>Turning ideas into <em>stories</em> people actually <span class="underline">stop for</span>.</h1>
+    <p>I'm Mandy — a marketing professional who blends research-driven insights with a creative touch of content and event planning to help brands connect, engage, and grow.</p>
+    <div class="tag-row">
+      <span class="tag">Content Strategy</span>
+      <span class="tag">Event Activation</span>
+      <span class="tag">Brand Storytelling</span>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="shapes"><div class="c1"></div><div class="c2"></div><div class="c3"></div></div>
+    <div class="grain">
+      <h3>"Communication is creativity with a purpose."</h3>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-label">Selected Work</div>
+  <h2>Projects & <em>Campaign Highlights</em></h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="icon">📊</div>
+      <h3>Insight-to-Story Reporting</h3>
+      <div class="role">Research Analyst · Explorer Research</div>
+      <p>Led end-to-end research projects, converting complex quantitative and qualitative data into executive-ready deliverables, strategic insights, and actionable recommendations for client organizations including:</p>
+      <div class="client-tags">
+        <span>Walmart</span>
+        <span>Del Monte</span>
+        <span>Irving Consumer Products</span>
+        <span>Mondelēz International</span>
+        <span>The Coca-Cola Company</span>
+        <span>Samsung</span>
+        <span>Tonies</span>
+        <span>Wells</span>
+      </div>
+      <span class="work-result">Cross-project ownership</span>
+    </div>
+    <div class="work-card">
+      <div class="icon">🎨</div>
+      <h3>Social Media and Marketing Initiatives</h3>
+      <div class="role">Marketing Intern · FGF Brands</div>
+      <p>Designed 25+ branded visual assets and ran influencer/UGC initiatives, planning content calendars across digital and social channels for:</p>
+      <div class="client-tags">
+        <span>ACE Bakery</span>
+        <span>Stonefire</span>
+        <span>Simple Joys</span>
+        <span>Private Label</span>
+      </div>
+      <span class="work-result">+20% engagement · 100+ pieces</span>
+    </div>
+    <div class="work-card">
+      <div class="icon">🍺</div>
+      <h3>Molson Coors Campus Activation</h3>
+      <div class="role">Social Media Strategy & Brand Development · Strive Marketing Consulting</div>
+      <p>Supported a 4-month brand ambassador program strategy for Vizzy Hard Seltzer, combining market research with social media and on-campus activation recommendations.</p>
+      <span class="work-result">147 survey respondents · 3-phase rollout</span>
+    </div>
+    <div class="work-card">
+      <div class="icon">🚀</div>
+      <h3>SaaS Content & Outreach Sprint</h3>
+      <div class="role">Independent Consultant · Parker Dewey</div>
+      <p>Produced content and ran targeted outreach campaigns for a SaaS client, driving traffic and sign-up growth in a short sprint.</p>
+      <span class="work-result">+200% traffic · +75% sign-ups</span>
+    </div>
+  </div>
+
+  <div class="case-study">
+    <h4>SMC x Molson Coors</h4>
+    <div class="case-meta">Winter 2024 · <strong>Role: Consultant</strong></div>
+    <p>Supported a 4-month Social Media Strategy & Brand Development project for Molson Coors' Vizzy Hard Seltzer, conducting a 147-respondent market research survey and developing recommendations for a brand ambassador program to drive purchase intent at Queen's University.</p>
+  </div>
+
+  <div class="case-study">
+    <h4>SMC x Tailored Brands</h4>
+    <div class="case-meta"><strong>Role: Project Director</strong></div>
+    <p>Led a 4-month Social Media Strategy & Brand Development project for Moores menswear, combining Gen Z market research with a student-event partnership and short-form video content that drove a 178% increase in Instagram profile visits and a 70% increase in website visits.</p>
+  </div>
+
+  <div class="work-subsection-title">
+    <div class="section-label">Portfolio</div>
+    <h2>Infographics & <em>Graphics</em></h2>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>West Kowloon Cultural District — Social Campaign</h3>
+        <p>A cohesive Instagram feed layout and promotional ad designed to showcase West Kowloon Cultural District Park as a creative day-to-night destination.</p>
+      </div>
+      <span class="gallery-tag">Social Media & Ads</span>
+    </div>
+    <div class="gallery-grid">
+      <img src="images/Infographics- Graphics/Mockup_Instagram Feed.png" alt="West Kowloon Insta Feed">
+    </div>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>West Kowloon Moodboards</h3>
+        <p>Daylight and evening moodboards exploring the visual identity, color palette, and atmosphere for the West Kowloon campaign concept.</p>
+      </div>
+      <span class="gallery-tag">Moodboard</span>
+    </div>
+    <div class="gallery-grid cols-2">
+      <img src="images/Infographics- Graphics/Moodboard_Daylight.png" alt="West Kowloon daylight moodboard">
+      <img src="images/Infographics- Graphics/Moodboard_Evening.png" alt="West Kowloon evening moodboard">
+    </div>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>Loblaw Companies Limited — Brand Overview & Solution</h3>
+        <p>A brand snapshot of Loblaw Companies Limited paired with a proposed communications solution covering email marketing, social media, and PR strategy.</p>
+      </div>
+      <span class="gallery-tag">Brand Strategy</span>
+    </div>
+    <div class="gallery-grid cols-2">
+      <img src="images/Infographics- Graphics/Loblaws_Moodboard.png" alt="Loblaw Companies Limited brand overview">
+      <img src="images/Infographics- Graphics/Loblaws_Solution.png" alt="Loblaws communications solution graphic">
+    </div>
+  </div>
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>FGF Brands — Recipe Card Series</h3>
+        <p>Recipe card designs created for FGF Brands, showcasing menu inspiration built around bakery products for ACE Bakery, Stonefire, and Simple Joys.</p>
+      </div>
+      <span class="gallery-tag">Content Design</span>
+    </div>
+
+    <div class="gallery-subsection">
+      <h4>
+        <span class="brand-icon">🥖</span> ACE Bakery
+        <span class="brand-links">
+          <a href="https://www.instagram.com/acebakery/" target="_blank" rel="noopener" aria-label="ACE Bakery Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://acebakery.com/en-us" target="_blank" rel="noopener" aria-label="ACE Bakery website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </span>
+      </h4>
+      <div class="gallery-grid">
+        <img src="images/Recipe Cards/ACE Bakery/ACE_RecipeCard_LambBurger.png" alt="ACE Bakery Savory and Rich Lamb Burger recipe card">
+        <img src="images/Recipe Cards/ACE Bakery/ACE_RecipeCard_PorkBanhMi.png" alt="ACE Bakery Bold and Flavorful Pork Banh Mi recipe card">
+        <img src="images/Recipe Cards/ACE Bakery/ACE_RecipeCard_VegetarianBreakfastBurger.png" alt="ACE Bakery Mexican-Inspired Vegetarian Breakfast Burger recipe card">
+      </div>
+    </div>
+
+    <div class="gallery-subsection">
+      <h4>
+        <span class="brand-icon">🔥</span> Stonefire
+        <span class="brand-links">
+          <a href="https://www.instagram.com/stonefirenaan/" target="_blank" rel="noopener" aria-label="Stonefire Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://stonefire.com/en-us" target="_blank" rel="noopener" aria-label="Stonefire website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </span>
+      </h4>
+      <div class="gallery-grid">
+        <img src="images/Recipe Cards/Stonefire/Stonefire_RecipeCard_ChickenShawarma.png" alt="Stonefire Chicken Shawarma recipe card">
+        <img src="images/Recipe Cards/Stonefire/Stonefire_RecipeCard_PersonalPizza-CacioEPepe.png" alt="personalized pizza Cacio e Pepe">
+        <img src="images/Recipe Cards/Stonefire/Stonefire_RecipeCard_PimentoCheeseDip.png" alt="Stonefire Pimento Cheese Dip recipe card">
+      </div>
+    </div>
+
+    <div class="gallery-subsection">
+      <h4>
+        <span class="brand-icon">🍰</span> Simple Joys
+        <span class="brand-links">
+          <a href="https://www.instagram.com/simplejoys_bakery/" target="_blank" rel="noopener" aria-label="Simple Joys Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.fgfbrands.com/simple-joys/" target="_blank" rel="noopener" aria-label="Simple Joys website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </span>
+      </h4>
+      <div class="gallery-grid">
+        <img src="images/Recipe Cards/Simple Joys/SJ_RecipeCard_FrenchToastCakes.png" alt="Simple Joys Banana Nut French Toast recipe card">
+        <img src="images/Recipe Cards/Simple Joys/SJ_RecipeCard_StackedCampfireDessert.png" alt="Simple Joys S'mores Campfire Dessert recipe card">
+        <img src="images/Recipe Cards/Simple Joys/SJ_RecipeCard_StrawberryLemonCake.png" alt="Simple Joys Strawberry Lemon Sliced Cake recipe card">
+      </div>
+    </div>
+  </div>
+
+  <div class="work-subsection-title">
+    <div class="section-label">Portfolio</div>
+    <h2>Social <em style="color:var(--orange);font-style:normal;">Media</em></h2>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>i-Create Youth</h3>
+        <p>i-Create Youth, a youth-led organization focused on disability rights and education, covering awareness campaigns, applications, partnerships, and community resources.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/icreateyouth/" target="_blank" rel="noopener" aria-label="i-Create Youth Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://icreateyouth.wixsite.com/site" target="_blank" rel="noopener" aria-label="i-Create Youth website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </div>
+        <div class="platform-tags">
+          <span class="tag-instagram">Instagram</span>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-grid cols-2">
+      <img src="images/Social Media/i-Create Youth/I-Create Youth.png" alt="i-Create Youth Instagram grid - applications, fellowship program, and blog posts">
+      <img src="images/Social Media/i-Create Youth/i-Create Youth 2.png" alt="i-Create Youth Instagram grid - disability pride anthology and awareness posts">
+    </div>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>Queen's Retail Forum</h3>
+        <p>Social media content for the Queen's Retail Forum, a Smith School of Business club connecting students with the retail industry through events, recruitment, and education.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/queensretailforum/" target="_blank" rel="noopener" aria-label="Queen's Retail Forum Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://ca.linkedin.com/company/queen's-retail-forum-qrf-" target="_blank" rel="noopener" aria-label="Queen's Retail Forum LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM1 8h4v13H1V8zm7 0h4v2h.06c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H8V8z"/></svg>
+          </a>
+          <a href="https://www.queensretailforum.com/" target="_blank" rel="noopener" aria-label="Queen's Retail Forum website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </div>
+        <div class="platform-tags">
+          <span class="tag-instagram">Instagram</span>
+          <span class="tag-linkedin">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <img src="images/Social Media/Queen's Retail Forum/co-chair reveal qrf.png" alt="Queen's Retail Forum testimonials post featuring Michelle Sidrak and Natalie Hill">
+      <img src="images/Social Media/Queen's Retail Forum/march hiring qrf.png" alt="Queen's Retail Forum March Hiring info session post">
+      <img src="images/Social Media/Queen's Retail Forum/retail day qrf.png" alt="Queen's Retail Forum Retail Day event post">
+    </div>
+  </div>
+
+  <div class="gallery-block">
+    <div class="gallery-header">
+      <div>
+        <h3>Strive Marketing Consulting</h3>
+        <p>Social media content for Strive Marketing Consulting (formerly Smith Marketing Consulting), a student-run marketing consultancy at Queen's University.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/strivemarketingconsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://ca.linkedin.com/company/strivemarketingconsulting" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.1 5.5 3 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM1 8h4v13H1V8zm7 0h4v2h.06c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6V21h-4v-5.4c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H8V8z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/SmithMarketingConsulting/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7.9V12h2.6V9.8c0-2.6 1.5-4 3.9-4 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://strivemarketingconsulting.ca/" target="_blank" rel="noopener" aria-label="Strive Marketing Consulting website">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
+          </a>
+        </div>
+        <div class="platform-tags">
+          <span class="tag-instagram">Instagram</span>
+          <span class="tag-linkedin">LinkedIn</span>
+          <span class="tag-facebook">Facebook</span>
+        </div>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/march hiring smc.png" alt="SMC March Hiring 2023-2024 post">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/testimonials smc 1.png" alt="SMC testimonials post featuring Will Cooper, Matthew Tran, and Shiraz Sigouin">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/apps are due.png" alt="SMC apps due tomorrow reminder post">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/march hiring smc 2.png" alt="SMC March Hiring key dates post">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/march hiring 3.png" alt="SMC March Hiring resources post">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/project hsbc.png" alt="SMC consulting team photo with HSBC client logo">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/executive reveal.png" alt="SMC Meet the 2022-2023 Team graphic">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/frosh apps are live 2022.png" alt="SMC first-year analyst apps are live post">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/frosh reveal 2022.png" alt="SMC 2022-2023 first-year analysts Will Cooper and Shiraz Sigouin">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/join the team 1.png" alt="SMC join the team graphic with architectural photography">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/join the team 2.png" alt="SMC join the team graphic frosh rep positions photography">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/managing partner reveal.png" alt="SMC 2023-2024 Managing Partners Rishi Goel and Jordan Kim">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/propel.png" alt="SMC X Propel Graphic">
+      <img src="images/Social Media/Strike Marketing Consulting (formely known as Smith Marketing Consulting)/propel group.png" alt="SMC X Propel Team Graphic">
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills-wrap">
+    <div class="section-label">Toolkit</div>
+    <h2>Skills & <em>Tools</em></h2>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <h4>Content & Design</h4>
+        <span class="skill-pill">Adobe Creative Cloud</span>
+        <span class="skill-pill">Photoshop</span>
+        <span class="skill-pill">Illustrator</span>
+        <span class="skill-pill">InDesign</span>
+        <span class="skill-pill">Lightroom</span>
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">Wix</span>
+      </div>
+      <div class="skill-block">
+        <h4>Strategy & Insights</h4>
+        <span class="skill-pill">Content Calendars</span>
+        <span class="skill-pill">Q Research</span>
+        <span class="skill-pill">Qualtrics</span>
+        <span class="skill-pill">Decipher</span>
+        <span class="skill-pill">Competitor Analysis</span>
+        <span class="skill-pill">Reporting & Data Viz</span>
+      </div>
+      <div class="skill-block">
+        <h4>Platforms, Programs & Activations</h4>
+        <span class="skill-pill">Instagram</span>
+        <span class="skill-pill">TikTok</span>
+        <span class="skill-pill">LinkedIn</span>
+        <span class="skill-pill">Microsoft Suite</span>
+        <span class="skill-pill">PowerPoint</span>
+        <span class="skill-pill">Excel</span>
+        <span class="skill-pill">Word</span>
+        <span class="skill-pill">Outlook</span>
+        <span class="skill-pill">OneDrive</span>
+        <p style="margin-top:14px;color:rgba(255,255,255,0.65);font-size:0.85rem;">Experienced in leveraging research, analytics, and creative tools to translate insights into marketing strategies, content, and campaign execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-visual"><img src="images/mandy_pfp.png" alt="Mandy Soung at Smith School of Business graduation"></div>
+  <div>
+    <div class="section-label">About</div>
+    <h2>Hi, I'm <em>Mandy</em> 👋</h2>
+    <p>I'm a recent Queen's Commerce grad with a passion for the intersection of research, content, and storytelling. From designing branded social campaigns to leading on-campus activations and translating data into executive narratives, I love finding the creative angle in every project.</p>
+    <p>Whether a 100-slide report deck or activations/campaigns, I bring structure, energy, and a sharp eye for what makes people pay attention.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">2025–Now</div>
+        <div class="desc"><strong>Research Analyst</strong><span>Explorer Research, Toronto</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2024</div>
+        <div class="desc"><strong>Marketing Intern & Brand Ambassador</strong><span>FGF Brands, Toronto</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2024</div>
+        <div class="desc"><strong>Producer</strong><span>Simply Living Studios — <a href="https://www.youtube.com/watch?v=j9pS-QRKNT8" target="_blank" rel="noopener">"Avenoir Love"</a> & <a href="https://www.youtube.com/watch?v=2M9VYwEwbPY" target="_blank" rel="noopener">"Avenoir Superficial"</a> music videos</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2023–2024</div>
+        <div class="desc"><strong>Business Administration</strong><span>Smith Commerce Society, Kingston</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2023–2024</div>
+        <div class="desc"><strong>Registration Assistant</strong><span>Dunin-Deshpande Queen's Innovation Centre, Kingston</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2022–2025</div>
+        <div class="desc"><strong>Project Director / Consultant / Marketing Coordinator</strong><span>Strive Marketing Consulting, Kingston</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2022–2023</div>
+        <div class="desc"><strong>Brand Ambassador</strong><span>Alma Mater Society of Queen's University, Kingston</span></div>
+      </div>
+      <div class="timeline-section-label">Education</div>
+      <div class="timeline-item">
+        <div class="year">2021–2025</div>
+        <div class="desc"><strong>Bachelor of Commerce, Smith School of Business</strong><span>Queen's University · Dean's List</span></div>
+      </div>
+      <div class="timeline-item">
+        <div class="year">2021–2023</div>
+        <div class="desc"><strong>Brand Ambassador</strong><span>Queen's Marketing Association, Kingston</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Let's create<br>something great.</h2>
+  <p>Open to marketing, content creation, event, strategist, and communications roles.</p>
+  <a class="cta-btn" href="mailto:mandy.soung@gmail.com">Say hello →</a>
+  <div class="footer-links">
+    <a href="mailto:mandy.soung@gmail.com">mandy.soung@gmail.com</a>
+    <a href="https://linkedin.com/in/mandysoung" target="_blank">LinkedIn</a>
+    <a href="tel:6472337868">(647) 233-7868</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="Expanded view">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    lightboxImg.src = '';
+  });
+</script>
+
+</body>
+</html>
