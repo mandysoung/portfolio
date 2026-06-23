@@ -311,6 +311,63 @@
   .footer-links{margin-top:30px;font-size:0.9rem;}
   .footer-links a{margin:0 12px;border-bottom:1px solid rgba(255,255,255,0.4);}
 
+  /* DECK CARD — embedded within gallery blocks */
+  .deck-card{
+    margin-top:32px;display:flex;align-items:center;gap:24px;
+    background:#fff;border:2px solid var(--ink);border-radius:18px;
+    padding:22px 28px;box-shadow:5px 5px 0 var(--ink);
+    transition:transform .2s ease, box-shadow .2s ease;
+    text-decoration:none;color:var(--ink);
+  }
+  .deck-card:hover{transform:translate(-4px,-4px);box-shadow:9px 9px 0 var(--ink);}
+  .deck-card .deck-icon{
+    width:52px;height:52px;border-radius:12px;border:2px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+    flex-shrink:0;
+  }
+  .deck-card .deck-text{flex:1;}
+  .deck-card .deck-text strong{display:block;font-size:1rem;font-weight:700;margin-bottom:4px;}
+  .deck-card .deck-text span{font-size:0.85rem;color:var(--muted);}
+  .deck-card .deck-arrow{
+    font-size:1.3rem;color:var(--muted);transition:color .15s ease, transform .15s ease;
+  }
+  .deck-card:hover .deck-arrow{color:var(--ink);transform:translateX(3px);}
+
+  /* ADDITIONAL WORK SECTION */
+  .additional-work-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
+  }
+  .additional-card{
+    background:#fff;border:2px solid var(--ink);border-radius:18px;
+    padding:30px;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .additional-card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--ink);}
+  .additional-card .ac-icon{
+    width:52px;height:52px;border-radius:12px;border:2px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+    margin-bottom:18px;background:var(--yellow);
+  }
+  .additional-card h3{font-size:1.3rem;font-weight:600;margin-bottom:6px;}
+  .additional-card .ac-meta{font-size:0.85rem;color:var(--muted);font-weight:600;margin-bottom:12px;}
+  .additional-card p{font-size:0.95rem;color:var(--muted);}
+  .additional-card .deck-link{
+    display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+    background:var(--ink);color:#fff;font-size:0.85rem;font-weight:700;
+    padding:8px 18px;border-radius:20px;transition:background .15s ease;
+  }
+  .additional-card .deck-link:hover{background:var(--purple);}
+
+  /* COURSES PILLS under education */
+  .courses-list{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;
+  }
+  .course-pill{
+    display:inline-block;background:rgba(108,99,255,0.08);
+    border:1.5px solid var(--purple);border-radius:20px;
+    padding:5px 14px;font-size:0.8rem;font-weight:600;color:var(--purple);
+  }
+  .course-pill::before{content:'A+ · ';}
+
   @media(max-width:900px){
     .hero{grid-template-columns:1fr;}
     .hero h1{font-size:2.8rem;}
@@ -320,6 +377,8 @@
     nav a{margin-left:14px;font-size:0.85rem;}
     section h2{font-size:2rem;}
     footer h2{font-size:2.2rem;}
+    .additional-work-grid{grid-template-columns:1fr;}
+    .deck-card{flex-direction:column;align-items:flex-start;gap:14px;}
   }
 </style>
 </head>
@@ -435,6 +494,14 @@
       <img src="images/Infographics- Graphics/Moodboard_Daylight.png" alt="West Kowloon daylight moodboard" loading="lazy">
       <img src="images/Infographics- Graphics/Moodboard_Evening.png" alt="West Kowloon evening moodboard" loading="lazy">
     </div>
+    <a class="deck-card" href="decks/west-kowloon-deck.pdf" target="_blank" rel="noopener">
+      <div class="deck-icon" style="background:var(--teal);">📑</div>
+      <div class="deck-text">
+        <strong>West Kowloon — Full Strategy Deck</strong>
+        <span>Social media strategy, Instagram feed concept & ad campaign · PDF</span>
+      </div>
+      <span class="deck-arrow">→</span>
+    </a>
   </div>
 
   <div class="gallery-block">
